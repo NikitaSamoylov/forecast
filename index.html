@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Прогноз погоды</title>
+    <link rel="stylesheet" href="./styles.css/normalize.css">
+    <link rel="stylesheet" href="./styles.css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="headline">Погода</h2>
+        </div>
+    </header>
+    <main class="main">
+        <div class="container">
+            <div class="headline">
+                <span>Погода</span>
+                    <span class="currentDate">сегодня</span>
+                    <span class="currentDateIcon"><img class="dropdown"src="./icons/open.svg"/></span>
+            </div>
+                <div class="drop_down_menu">
+                    <ul class="menu_list hidden">
+                        <li class="menu_item today hidden">сегодня</li>
+                        <li class="menu_item tomorrow">завтра</li> 
+                        <li class="menu_item tomorrow">послезавтра</li> 
+                    </ul>
+            </div>
+                <div class="main_info">
+                    <div class="main_temperature">
+                        <span>16&deg</span>
+                    </div>
+                    <div class="city_info">
+                        <p class="city">Samara</p>
+                        <img alt="Ясно" width="35">
+                    </div>
+            </div>
+                <div class="panel filter">
+                    <div class="panel_info">
+                    <form action="submit">
+                        <input type="text" placeholder="Название города..." class="search_field" autocomplete="on" type="text">
+                        <button type="submit" class="submit submit_button"><img src="./icons/search-icon/308581.svg" alt="Поиск" width="11"></button>
+                    </form>
+                    <div class="const_city">
+                        <ul class="city_list">
+                            <li class="city_item city1">Костино</li>
+                            <li class="city_item city2">Курманаевка</li>
+                            <li class="city_item city3">Самара</li>
+                            <li class="city_item city4">Бузулук</li>
+                        </ul>
+                    </div>
+                    <div class="panel_weather_details">
+                        <ul class="specific_details">
+                            <li class="detail cloudy">
+                                <span class="panel_weather_detail cloudy_name">Осадки</span>
+                                <span class="panel_weather_info cloudy_value">25%</span>
+                            </li>
+                            <li class="detail" class="visibility">
+                                <span class="panel_weather_detail visibility_name">Видимость</span>
+                                <span class="panel_weather_info visibility_value">25%</span>
+                            </li>
+                            <li class="detail" class="wind">
+                                <span class="panel_weather_detail wind_name">Ветер</span>
+                                <span class="panel_weather_info wind_value">25%</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+    </main>
+<script src="./script.js/second.js"></script>
+</body>
+</html>

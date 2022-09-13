@@ -1,0 +1,224 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    font-weight: normal;
+    font-family: 'Arial', sans-serif;
+}
+body {
+    background-image: url(../images/main-images/day_pic_2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+.container {
+    margin-left: 30px;
+    height: 100vh;
+    width: 100vw;
+
+} 
+.main_info {
+    display: flex;
+    color: #fff;
+    margin-bottom: 30px;
+    align-items: center;
+    position: fixed;
+    top: 75%;
+}
+.main_temperature>span {
+    font-size: 92px;
+}
+.city_info>span {
+    font-size: 16px;
+}
+.weather_today {
+    margin-left: 10px;
+    border-left: 1px solid grey;
+    padding-left: 5px;
+    margin-top: auto;
+}
+.headline {
+    display: flex;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    font-weight: normal;
+    padding-top: 30px;
+}
+.headline>span {
+    font-size: 21px;
+}
+.headline>span:first-child {
+    margin-right: 15px;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-weight: normal;
+}
+.today_day {
+    display: flex;
+    justify-content: space-between;
+    width: 140px;
+}
+.currentDate {
+    cursor: pointer;
+}
+.dropdown {
+    width: 25px;
+    padding-left: 10px;
+    cursor: pointer;
+    filter: brightness(50%);
+}
+.menu_list {
+    position: absolute;
+    top: 70px;
+    left: 116px;
+    z-index: 2;
+}
+.menu_item {
+    color: #fff;
+    text-align: left;
+    font-size: 18px;
+    border-bottom: 1px solid grey;
+    padding-bottom: 5px;
+    cursor: pointer;
+    margin-bottom: 7px;
+}
+.dropdown {
+    filter: brightness(100%);
+}
+.hidden {
+    display: none;
+}
+.panel {
+    margin-left: 0px;
+    background-color: #c0bcbc33;
+    backdrop-filter: blur(7px);
+    padding: 30px;
+    height: 100vh;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    width: 46%;
+    position: fixed;
+    left: 56%;
+}
+.panel_info {
+    padding-right: 30px;
+    text-align: left;
+}
+.header {
+    display: none;
+}
+.city_info {
+    padding-left: 15px;
+}
+.city_info > .city {
+    font-size: 42px;
+}
+.main_temperature {
+    font-size: 92px;
+}
+form {
+    display: flex;
+    justify-content: space-between;
+}
+form>button {
+    align-self: flex-end;
+}
+input {
+    background: rgba(255,255,255,0);
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 3px;
+    color: #fff;
+    width: 100%;
+}
+input::placeholder {
+    color: rgba(231, 229, 229, 0.7);
+}
+form>button {
+    border: none;
+    box-shadow: 10px 5px 5px rgb(86, 84, 84);
+    background: #fff;
+    border-radius: 2px;
+    cursor: pointer;
+
+}
+.submit>img {
+    width: 50px;
+    height: 30px;
+    padding: 5px;
+}
+li {
+    list-style-type: none;
+}
+.city {
+    display: block;
+}
+.today_max, .today_min {
+    display: block;
+}
+.city_item, .detail {
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    padding-bottom: 30px;
+}
+.city_item:first-child, .detail:first-child {
+    padding-top: 50px;
+}
+.city_item:last-child{
+    padding-bottom: 50px;
+    border-bottom: 1px solid #fff;
+}
+.detail:last-child{
+    padding-bottom: 30px;
+}
+.city_item, .panel_weather_detail {
+    cursor: pointer;
+}
+.cloudy_value {
+    max-width: 170px;
+    text-align: right;
+}
+@media (max-width: 644px) {
+    .menu_list {
+        background-color: rgba(231, 229, 229, 0.1);
+        padding: 10px;
+        border-radius: 5px;
+        backdrop-filter: blur(7px);
+    }
+    .panel {
+        position: absolute;
+        left: 0%;
+        width: 100%;
+        top: 9.5%;
+        background-color: rgba(255,255,255,0);
+        backdrop-filter: none;
+    }
+    .panel_info {
+        padding-right: 0;
+    }
+    .city_item, .detail {
+        display: flex;
+        justify-content: space-between;
+        color: #fff;
+        padding-bottom: 15px;
+    }
+    .city_item:first-child, .detail:first-child {
+        padding-top: 25px;
+    }
+    .city_item:last-child{
+        padding-bottom: 25px;
+        border-bottom: 1px solid #fff;
+    }
+    .detail:last-child{
+        padding-bottom: 25px;
+    }
+}
+
+.hidden {
+    display: none
+}
