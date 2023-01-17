@@ -7,7 +7,8 @@
     font-family: 'Arial', sans-serif;
 }
 body {
-    background-image: url(../images/main-images/day_pic_2.jpg);
+    background-color: grey;
+    background-image: url(../images/weather.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
@@ -104,7 +105,7 @@ body {
     left: 56%;
 }
 .panel_info {
-    padding-right: 30px;
+    padding-right: 66px;
     text-align: left;
 }
 .header {
@@ -182,6 +183,11 @@ li {
 .cloudy_value {
     max-width: 170px;
     text-align: right;
+}
+@media (min-width: 1240px) {
+    .panel_info {
+        padding-right: 165px;
+    }
 }
 @media (max-width: 644px) {
     .menu_list {

@@ -18,18 +18,23 @@ const DAYS_NAMES = ['сегодня', 'завтра', 'послезавтра'];
 
 const RAYN_DAY = 'дождь';
 const STRONG_RAYN_DAY = 'ливень';
+const SMALL_RAYN_DAY = 'облачно';
 const CLEAR_DAY = 'ясно';
+const CLOUDY_DAY = 'облачно';
 const SUN_DAY = 'солнечно';
+const SNOW_DAY = 'снег';
+const SNOW_DAY_2 = 'снегопад';
 
 const WIND_STRENGTH_VALUE = [0.2, 5.5, 10.8, 20.7, 32.6];
 const WIND_STRENGTH_NAME = ['нет', 'легкий', 'умеренный', 'сильный', 'шторм', 'сильный шторм', 'неизвестно'];
 
-let city = 'Самара';
+let city = 'Москва';
 const getServerResponse = async (cityParam) => {
     const response = await  fetch(`https://api.weatherbit.io/v2.0/forecast/daily?city=${cityParam}&key=ef4eca2591374621ad68c297f2530617&hours=12&lang=ru&days=3`)
     let result = await response.json()
     cityMainName.textContent = cityParam
     getTodayData(result)
+    console.log(result)
 }
 getServerResponse(city);
 
@@ -61,17 +66,22 @@ const changeBackground = (cloudyArray) => {
     cloudyArray.forEach((elem) => {
         if (elem[0] == RAYN_DAY || elem[1] == RAYN_DAY || elem[2] == RAYN_DAY || elem[0] == STRONG_RAYN_DAY || elem[1] == STRONG_RAYN_DAY || elem[2] == STRONG_RAYN_DAY)
         {
-            body.style.backgroundImage = "url('../images/main-images/rain_day.jpg')"
-                    let date = new Date().getHours()
-                    if (date > 22) {
-                        body.style.backgroundImage = "url('../images/main-images/night_rain.jpg')"
-                    }  
+                body.style.backgroundImage = "url('../images/rain_day.jpg')"
         }
-        else if (elem[0] == SUN_DAY || elem[1] == SUN_DAY || elem[2] == SUN_DAY || elem[0] == CLEAR_DAY || elem[1] == CLEAR_DAY || elem[2] == CLEAR_DAY) {
-            body.style.backgroundImage = "url('../images/main-images/day_sun.jpg')"
+        else if (elem[0] == SUN_DAY || elem[1] == SUN_DAY || elem[2] == SUN_DAY || elem[0] == CLEAR_DAY || elem[1] == CLEAR_DAY || elem[2] == CLEAR_DAY || elem[0] == CLOUDY_DAY || elem[1] == CLOUDY_DAY || elem[2] == CLOUDY_DAY) {
+            let date = new Date();
+            const winterMonths = date.getMonth();
+            if (winterMonths == 10 || winterMonths == 11 || winterMonths == 0 || winterMonths == 1 || winterMonths == 2) {
+                body.style.backgroundImage = "url('../images/coudy_snow_day.jpg')"
+            } else {
+                body.style.backgroundImage = "url('../images/day_sun.jpg')"
+            }
+        }
+        else if (elem[0] == SNOW_DAY || elem[1] == SNOW_DAY || elem[2] == SNOW_DAY || elem[0] == SNOW_DAY_2 || elem[1] == SNOW_DAY_2 || elem[2] == SNOW_DAY_2) {
+            body.style.backgroundImage = "url('../images/snow_day.jpg')"
         }
         else {
-            body.style.backgroundImage = "url('../images/main-images/day_pic_2.jpg')"
+            body.style.backgroundImage = "url('../images/weather.jpg')"
         }
     })
 }
@@ -80,9 +90,10 @@ const displayCurrentData = (weatherSet) => {
     let cloudyArray = [];
     cloudy.textContent = weatherSet.weather.description
     let cloudyName = cloudy.textContent
-    let cloudyToLowerCase = cloudyName.toLocaleLowerCase()
+    let cloudyToLowerCase = cloudyName.toLowerCase()
     let cloudyNameSplit = cloudyToLowerCase.split(' ')
     cloudyArray.push(cloudyNameSplit)
+    console.log(cloudyArray)
 
     todayTemperature.innerHTML = Math.round(weatherSet.temp) + '&deg;'
     windValue.textContent = `${weatherSet.wind_spd} м/с`
@@ -154,27 +165,5 @@ chooseDay.addEventListener('click', function() {
 })
 dropDownIcon.addEventListener('click', () => {
     chooseDay.click()
-})
+});
 
-
-// const mQuery = window.matchMedia('(max-width: 644px)')
-
-// function handleMobilePhoneResize(e) {   
-//    // Проверяем, верен ли медиа-запрос
-//    if (e.matches) {   
-//     chooseDay.addEventListener('click', function() {
-//         if (menuList.classList.contains('hidden')) {
-//             dropDownIcon.src = '/icons/close.svg'
-//             menuList.classList.remove('hidden')
-//             hideDay()
-//         }else{
-//             main.classList.add('blur')
-//             menuList.style.zIndex = 3;
-//             dropDownIcon.src = '/icons/open.svg'
-//         }
-//     })  
-//    } 
-// } 
-
-// // Настраиваем слушателя событий
-// mQuery.addListener(handleMobilePhoneResize)
